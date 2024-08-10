@@ -1,69 +1,510 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --body-background-color: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    );
+
+    --backdrop-filer: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    --border: 1px solid rgba(255, 255, 255, 0.18);
+    --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    --root-margin-top: 20px;
+
+    /* layput width */
+
+    --mobile-width: 100%;
+    --tablet-width: 95%;
+    --desktop-width: 95%;
+    --wide-screen-width: 95%;
+
+    --mobile-background: var(--body-background);
+    --tablet-background: var(--body-background);
+    --desktop-background: var(--body-background);
+    --wide-screen-background: var(--body-background);
+
+    /* navigation font */
+    --navigation-font-size: 6rem;
+    --navigation-font-family: "Space Grotesk", sans-serif;
+    --navigation-font-style: normal;
+    --navigation-font-weight: 300;
+    --navigation-font-color: white;
+
+    /* header font properties */
+    --mobile-header-min-font-size: 1rem;
+    --mobile-header-max-font-size: 1rem;
+    --tablet-header-min-font-size: 1.25rem;
+    --tablet-header-max-font-size: 1.25rem;
+    --desktop-header-min-font-size: 1rem;
+    --desktop-header-max-font-size: 1.5rem;
+    --wide-screen-header-min-font-size: 1.75rem;
+    --wide-screen-header-max-font-size: 1.75rem;
+
+    --desktop-header-font-size: 4rem;
+    --tablet-header-font-size: clamp(
+      var(--tablet-header-min-font-size),
+      1rem,
+      var(--tablet-header-max-font-size)
+    );
+    --header-font-family: "Space Grotesk", sans-serif;
+    --header-font-style: normal;
+    --header-font-weight: 700;
+    --header-font-color: white;
+
+    --sub-header-font-size: 4rem;
+    --sub-header-font-family: "Poppins", sans-serif;
+    --sub-header-font-style: normal;
+    --sub-header-font-weight: 300;
+    --sub-header-font-color: white;
+
+    --paragraph-font-family: "Poppins", sans-serif;
+    --paragraph-font-style: normal;
+    --paragraph-font-weight: 100;
+    --paragraph-font-color: white;
+
+    /* header font size */
+
+    --mobile-subheader-min-font-size: 1rem;
+    --mobile-subheader-max-font-size: 1rem;
+    --tablet-subheader-min-font-size: 1.25rem;
+    --tablet-subheader-max-font-size: 1.25rem;
+    --desktop-subheader-min-font-size: 1.5rem;
+    --desktop-subheader-max-font-size: 1.5rem;
+    --wide-screen-subheader-min-font-size: 1.75rem;
+    --wide-screen-subheader-max-font-size: 1.75rem;
+
+    /* paragraph font size */
+
+    --small-paragraph-font-size: 1rem;
+    --big-paragraph-font-size: 2rem;
+    --small-paragraph-font-weight: 200;
+    --big-paragraph-font-weight: 300;
+
+    /* paragraph font weight */
+
+    --mobile-paragraph-min-font-size: 1rem;
+    --mobile-paragraph-max-font-size: 1rem;
+    --tablet-paragraph-min-font-size: 1rem;
+    --tablet-paragraph-max-font-size: 1rem;
+    --desktop-paragraph-min-font-size: 1rem;
+    --desktop-paragraph-max-font-size: 1rem;
+    --wide-screen-paragraph-min-font-size: 1rem;
+    --wide-screen-paragraph-max-font-size: 1rem;
+
+    /* navigation font size */
+
+    --mobile-navigation-min-font-size: 1rem;
+    --mobile-navigation-max-font-size: 1rem;
+    --tablet-navigation-min-font-size: 1rem;
+    --tablet-navigation-max-font-size: 1rem;
+    --desktop-navigation-min-font-size: 1rem;
+    --desktop-navigation-max-font-size: 1rem;
+    --wide-screen-navigation-min-font-size: 1rem;
+    --wide-screen-navigation-max-font-size: 1rem;
+
+    /* navigation width */
+    --navigation-width: 100%;
+    --hamburger-menu-width: 50px;
+
+    /* navigation height*/
+    --mobile-navigation-height: 120px;
+    --tablet-navigation-height: calc(var(--mobile-navigation-height) + 5px);
+    --desktop-navigation-height: calc(var(--tablet-navigation-height) + 5px);
+    --wide-screen-navigation-height: calc(
+      var(--desktop-navigation-height) + 5px
+    );
+
+    /* offset from fixed navigation */
+    --mobile-navigation-margin-bottom: calc(
+      var(--mobile-navigation-height) + 20px
+    );
+    --tablet-navigation-margin-bottom: calc(
+      var(--tablet-navigation-height) + 20px
+    );
+    --desktop-navigation-margin-bottom: calc(
+      var(--desktop-navigation-height) + 20px
+    );
+    --wide-screen-navigation-margin-bottom: calc(
+      var(--wide-screen-navigation-height) + 20px
+    );
+
+    /* navigation horozintal padding */
+    --mobile-navigation-x-padding: 10px;
+    --tablet-navigation-x-padding: calc(
+      var(--mobile-navigation-x-padding) + 5px
+    );
+    --desktop-navigation-x-padding: calc(
+      var(--tablet-navigation-x-padding) + 2px
+    );
+    --wide-screen-navigation-x-padding: calc(
+      var(--desktop-navigation-x-padding) + 2px
+    );
+
+    /* navigation item colors */
+
+    --navigation-item-background-color: var(--body-background-color);
+    --navigation-item-background-hover-color: var(--body-background-color);
+    --navigation-item-font-color: white;
+    --navigation-item-font-hover-color: white;
+
+    /* navigation item font color */
+
+    --navigation-font-color: white;
+    --navigation-font-hover-color: black;
+
+    /* navigation item width */
+
+    --mobile-navigation-item-min-width: 6rem;
+    --mobile-navigation-item-max-width: 1rem;
+    --tablet-navigation-item-min-width: 1rem;
+    --tablet-navigation-item-max-width: 1rem;
+    --desktop-navigation-item-min-width: 1rem;
+    --desktop-navigation-item-max-width: 1rem;
+    --wide-screen-navigation-item-min-width: 1rem;
+    --wide-screen-navigation-item-max-width: 1rem;
+
+    /* navigation item margin */
+    --mobile-navigation-item-min-margin: 3rem;
+    --mobile-navigation-item-max-margin: 1rem;
+    --mobile-navigation-item-horizontal-margin: 1rem;
+    --mobile-navigation-item-vertical-margin: 1rem;
+    --tablet-navigation-item-min-margin: 1rem;
+    --tablet-navigation-item-max-margin: 1rem;
+    --desktop-navigation-item-min-margin: 1rem;
+    --desktop-navigation-item-max-margin: 1rem;
+    --wide-screen-navigation-item-min-margin: 1rem;
+    --wide-screen-navigation-item-max-margin: 1rem;
+
+    /* navigation item padding */
+
+    --mobile-navigation-item-horizontal-padding: 1.75rem;
+    --mobile-navigation-item-vertical-padding: 0.75rem;
+    --tablet-navigation-item-horizontal-padding: 1rem;
+    --tablet-navigation-item-vertical-padding: 1rem;
+    --desktop-navigation-item-horizontal-padding: 1rem;
+    --desktop-navigation-item-vertical-padding: 1rem;
+    --wide-screen-navigation-item-horizontal-padding: 1rem;
+    --wide-screen-navigation-item-vertical-padding: 1rem;
+
+    /* navigation icons width */
+    --mobile-navigation-icon-width: 20px;
+
+    /* navigation border */
+
+    --navigation-border-width: 1px;
+    --navigation-border-color: black;
+    --navigation-border-style: solid;
+    --navigation-border: var(--navigation-border-width)
+      var(--navigation-border-color) var(--navigation-border-style);
+
+    /* button */
+
+    --mobile-button-font-size: 1rem;
+    --tablet-button-font-size: 1rem;
+    --desktop-button-font-size: 1rem;
+    --wide-screen-button-font-size: 1rem;
+
+    --mobile-button-horizontal-padding: 1rem;
+    --mobile-button-vertical-padding: 1rem;
+    --tablet-button-horizontal-padding: var(--mobile-button-horizontal-padding) +
+      2rem;
+    --tablet-button-vertical-padding: var(--mobile-button-vertical-padding) +
+      2rem;
+    --desktop-button-horizontal-padding: 1rem;
+    --desktop-button-vertical-padding: 1rem;
+    --wide-screen-button-horizontal-padding: 1rem;
+    --wide-screen-button-vertical-padding: 1rem;
+
+    --button-font-style: bold;
+    --button-radius: 2px;
+    --button-text-color: white;
+    --button-text-hover-color: black;
+    --button-background-color: black;
+    --button-background-hover-color: white;
+
+    --mobile-button-width: 1rem;
+    --tablet-button-width: 1rem;
+    --desktop-button-width: 1rem;
+    --wide-screen-button-width: 1rem;
+
+    --mobile-button-min-width: 1rem;
+    --mobile-button-max-width: 1rem;
+    --tablet-button-min-width: 1rem;
+    --tablet-button-max-width: 1rem;
+    --desktop-button-min-width: 1rem;
+    --desktop-button-max-width: 1rem;
+    --wide-screen-button-min-width: 1rem;
+    --wide-screen-button-max-width: 1rem;
+
+    /* image sizes */
+    --mobile-image-size: 50px;
+    --tablet-image-size: 70px;
+    --desktop-image-size: 75px;
+    --wide-screen-image-size: 80px;
+
+    /* logo sizes */
+    --mobile-logo-size: 100px;
+    --tablet-logo-size: 70px;
+    --desktop-logo-size: 210px;
+    --wide-screen-logo-size: 220px;
+
+    /* border */
+    --border-width: 1px;
+    --border-color: white;
+    --border-color-hover: white;
+    --border-style: solid;
+
+    /* hero section */
+    --hero-section-width: 100%;
+    --hero-section-height: 90vh;
+
+    /* product section */
+    --product-section-width: 100%;
+    --product-section-height: 50vh;
+
+    /* section*/
+    --mobile-section-margin-bottom: 10px;
+    --tablet-section-margin-bottom: 10px;
+    --desktop-section-margin-bottom: 10px;
+    --wide-screen-section-margin-bottom: 10px;
+
+    --mobile-section-height: 50vh;
+    --tablet-section-height: 50vh;
+    --desktop-section-height: 90vh;
+    --wide-screen-section-height: 50vh;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  body {
+    width: 100vw;
+    min-height: 100vh;
+
+    position: relative;
+    background: var(--body-background-color);
+    display: flex;
+    justify-content: center;
+    font-family: "Space Grotesk", sans-serif;
+  }
+
+  #root {
+    text-align: center;
+    min-height: 100%;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .text-stroke-1 {
+    color: transparent;
+    -webkit-text-stroke: 1px purple;
+    text-stroke: 1px white;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  .text-stroke-2 {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    text-stroke: 1px white;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  .text-stroke-3 {
+    color: transparent;
+    -webkit-text-stroke: 1px skyblue;
+    text-stroke: 1px white;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  .text-stroke-4 {
+    color: transparent;
+    -webkit-text-stroke: 1px #db2777;
+    text-stroke: 1px white;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  .form-display-true {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out, visibility 0s linear;
+  }
+
+  .form-display-false {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.3s linear;
+  }
+
+  .button {
+    background: black;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 50px;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .button-text {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    margin-right: 10px;
+  }
+
+  .button-icon {
+    width: 20px;
+  }
+
+  .button:hover {
+    background: rgb(34, 34, 46);
+  }
+
+  #upload-button {
+    width: 90%;
+  }
+
+  #stamp-area {
+    position: absolute;
+    bottom: 2%;
+    left: 15%;
+    background: rgba(24, 24, 31, 0.7);
+    width: 250px;
+    height: 200px;
+    visibility: hidden;
+  }
+
+  #signature-image-area {
+    width: 95%;
+    height: 35%;
+    margin: 5px auto;
+    background: rgba(255, 255, 255, 1);
+  }
+
+  #signature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #signature-details {
+    width: 95%;
+    margin: 5px auto;
+  }
+
+  .signature-detail {
+    font-size: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    margin-top: 2px;
+    padding: 2px;
+  }
+
+  #signature-detail-insert {
+    font-size: 10px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 1023px) {
+    #root {
+      width: var(--mobile-width);
+      margin: var(--mobile-navigation-margin-bottom) auto 0 auto;
+    }
+
+    #nav__menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: var(--body-background-color);
+      flex-direction: column;
+      transform: translateX(100%);
+      opacity: 0;
+      transition: transform 3s ease-in-out, opacity 3s ease-in-out;
+      display: none; /* Initially hide the menu */
+      z-index: 10;
+    }
+
+    #nav__menu.nav__active {
+      display: flex; /* Show the menu when active */
+      flex-direction: column; /* Ensure items stack vertically */
+      align-items: center;
+      justify-content: space-around;
+      transform: translateX(0); /* Slide the menu into view */
+      opacity: 1;
+      transition: transform 3s ease-in-out, opacity 3s ease-in-out 3s;
+    }
+
+    #nav__active {
+      display: flex; /* Show the menu when active */
+      flex-direction: column; /* Ensure items stack vertically */
+      transform: translateX(0); /* Slide the menu into view */
+      opacity: 0;
+      transition: transform 3s ease-in 0.5s, opacity 0.5s ease-in-out 3s;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    #root {
+      width: var(--tablet-width);
+      margin: var(--tablet-navigation-margin-bottom) auto 0 auto;
+    }
+  }
+
+  @media only screen and (min-width: 1366px) {
+    #root {
+      width: var(--desktop-width);
+      margin: var(--desktop-navigation-margin-bottom) auto 0 auto;
+    }
+  }
+
+  @media only screen and (min-width: 1600px) {
+    #root {
+      width: var(--wide-screen-width);
+      margin: var(--wide-screen-navigation-margin-bottom) auto 0 auto;
+    }
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.side-navigation,
+.top-navigation,
+.outlet {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
